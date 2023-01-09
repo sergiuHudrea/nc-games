@@ -14,21 +14,23 @@ export const SingleReview = () => {
     }, [review_id])
     
     return (
-        <div className='Review'> <br/>
+        <section className='Review'> <br/>
 
             <h3>{review.title} </h3>  
             <p> <strong> Designer: </strong> {review.designer} <br/> </p>
-
-            <strong> Votes: </strong> {review.votes} <br/> 
-            <strong> Comments: </strong> {review.comment_count}
             
-            <p><img src={review.review_img_url} alt="Board Game Review." height="300px" width="300px"/> <br /> </p>
+            <p> 
+                <strong> Votes: </strong> {review.votes} <br/> 
+                <strong> Comments: </strong> {review.comment_count} <br/>
+            </p>
+           
+            <img src={review.review_img_url} alt="Board Game Review." height="300px" width="300px"/> <br />
             
             <p> <strong>Review:</strong> {review.review_body} <br/> </p>
-            <p><strong> Owner: </strong> {review.owner} <br/></p>
+            <p> <strong> Owner: </strong> {review.owner} <br/></p>
 
             <strong> Created at: </strong> {review.created_at}
             
-        </div>
+        </section>
     )
 }
