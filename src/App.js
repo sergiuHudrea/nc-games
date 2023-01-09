@@ -13,7 +13,6 @@ function App() {
 
      <Routes>
         <Route path='/' element={<AllReviews />} />
-        <Route path='/reviews' element={<AllReviews />} />
      </Routes>
     </div>
     </BrowserRouter>

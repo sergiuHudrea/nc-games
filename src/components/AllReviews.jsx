@@ -11,7 +11,7 @@ export const AllReviews = () => {
     }, [])
 
 
-    return <div className="flex">
+    return <div className="Reviews__Body">
         {reviews.map((review) => <p key={review.review_id} className="Reviews">
             <strong>{review.title}</strong> <br/>
             Votes: {review.votes} <br/>
