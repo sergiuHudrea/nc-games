@@ -3,6 +3,11 @@
 }
 
 
+.Header {
+  color: red;
+  border: 3px solid black ;
+  padding: 5px;
+}
 
 .Reviews__Body{
   display:flex;
@@ -11,7 +16,8 @@
   flex-grow:1;
   margin: 40px;
 }
-  .Reviews {
+
+.Reviews {
     border: 2px solid red;
     padding: 1rem;
     border-radius: 10%;
@@ -19,11 +25,11 @@
 
   }
 
-
-.Header {
-  color: red;
-  border: 3px solid black ;
-  padding: 5px;
+.Review {
+  border: 3px dotted red;
+  padding: 20px;
+  margin: 20px;
 }
+
 
 
