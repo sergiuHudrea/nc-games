@@ -36,7 +36,8 @@ export const SingleReview = () => {
 
             </section>
 
-            <section>
+            <section className='Comments__Body'>
+                <h3> Comments Section </h3>
                 <Comments review_id={review_id} />
                 
             </section>

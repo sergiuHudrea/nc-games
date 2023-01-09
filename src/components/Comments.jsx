@@ -12,8 +12,7 @@ export const Comments = ({ review_id }) => {
     }, [])
 
     return (comments.map((comment) => ( <div key={comment.comment_id} className="Comments">
-                <p> <strong>Comment: </strong> {comment.body}</p>
-                <p> <strong>Author: </strong> {comment.author}</p>
+                <p> <strong>{comment.author}: </strong> {comment.body}</p>
                 <p> <strong>Created at: </strong> {comment.created_at}</p>
                 <p> <strong>Votes: </strong> {comment.votes}</p>
             </div>

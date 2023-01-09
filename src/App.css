@@ -6,7 +6,8 @@
 .Header {
   color: red;
   border: 3px solid black ;
-  padding: 5px;
+  padding: 20px;
+  margin: 20px;
 }
 
 .Reviews__Body{
@@ -38,6 +39,8 @@
   padding: 5px;
 }
 
-
-
-
+.Comments__Body {
+  border: 3px dotted black;
+  padding: 20px;
+  margin: 20px;
+}
