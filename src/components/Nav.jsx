@@ -4,7 +4,7 @@ export const Nav = () => {
     return (
         <nav>
             <Link to='/'> Reviews </Link>
-            <span> | </span> Users <span> | </span> Categories
+            <span> | </span> Users <span> | </span> Categories 
         </nav>
     )
 }
