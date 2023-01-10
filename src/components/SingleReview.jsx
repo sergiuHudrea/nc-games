@@ -20,12 +20,17 @@ export const SingleReview = () => {
     }, [review_id])
 
     const Vote = ({review_id},  vote) => {
+        setReview((currReview)=> {
+            const updatedReview = {...currReview}
+            updatedReview.votes += vote;
+            return  updatedReview; }) 
+
             patchVotesReview(review_id, vote).then((res) => 
-                res === 200 ? setReview((currReview)=> {
+                res !== 200 ? setReview((currReview)=> {
                     const updatedReview = {...currReview}
-                    updatedReview.votes += vote;
-                    return  updatedReview;
-        }) : alert(`Your vote has not gone through, please try again.`))
+                    updatedReview.votes -= vote;
+                    return  updatedReview; })  : null
+            )
     
     }
     
