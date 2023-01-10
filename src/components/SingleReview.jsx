@@ -25,13 +25,12 @@ export const SingleReview = () => {
             updatedReview.votes += vote;
             return  updatedReview; }) 
 
-            patchVotesReview(review_id, vote).then((res) => 
-                res !== 200 ? setReview((currReview)=> {
+            patchVotesReview(review_id, vote).catch((err) => 
+                setReview((currReview)=> {
                     const updatedReview = {...currReview}
                     updatedReview.votes -= vote;
-                    return  updatedReview; })  : null
+                    return  updatedReview; })
             )
-    
     }
     
     return (
