@@ -25,7 +25,14 @@ export const getComments = (review_id) => {
 export const patchVotesReview = (review_id, vote) => {
     const patchBody = { inc_votes: vote }
 
-    return houseOfGamesApi.patch(`/reviews/${review_id}`, patchBody).then((res) => {
-        return res.request.status;
-    })
+    return houseOfGamesApi.patch(`/reviews/${review_id}`, patchBody)
+}
+
+export const postComment = (review_id, newComment) => {
+    const postBody = {
+        username: "happyamy2016",
+        body: newComment
+    }
+
+    return houseOfGamesApi.post(`/reviews/${review_id}/comments`, postBody)
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getComments } from '../api';
-
+import { InsertComment } from "./InsertComment";
 
 export const Comments = ({ review_id }) => {
     const [comments, setComments] = useState([]);
@@ -15,11 +15,16 @@ export const Comments = ({ review_id }) => {
     }, [])
 
     return isLoading ? <p> Loading... </p> :
-        comments.length !== 0 ? comments.map((comment) => ( <section key={comment.comment_id} className="Comments">
-                <p> <strong>{comment.author}: </strong> {comment.body}</p>
+        comments.length !== 0 ? <section>{comments.map((comment) => 
+            (<section key={comment.comment_id} className="Comments"> 
+                <p> <strong>{comment.author} : </strong> {comment.body}</p> 
                 <p> <strong>Created at: </strong> {comment.created_at}</p>
                 <p> <strong>Votes: </strong> {comment.votes}</p>
-            </section>) )
-                         : <section key="noComments" className="Comments"> There are no comments at the moment </section>
+            </section>) )}
+            <section> 
+                <InsertComment review_id={review_id} setComments={setComments} />
+            </section> 
+                                </section>
+                : <section key="noComments" className="Comments"> There are no comments at the moment </section>
     
 }

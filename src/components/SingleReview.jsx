@@ -29,6 +29,7 @@ export const SingleReview = () => {
                 patchVotesReview(review_id, vote).catch((err) => 
                     setReview((currReview)=> {
                         setIVoted(false)
+                        alert("Your vote did not go through, please try again.")
                         const updatedReview = {...currReview}
                         updatedReview.votes -= vote;
                         return  updatedReview; })
@@ -56,15 +57,15 @@ export const SingleReview = () => {
 
             </section>
             <section>
-                        <button className="Button" aria-label='Up vote review.' onClick={() => Vote({review_id}, 1)}> upVote </button>
-                        <button className="Button" aria-label='Down vote review.' onClick={() => Vote({review_id}, -1)}> downVote </button>
+                        <button className="Button" aria-label='Up vote review.' onClick={() => Vote({review_id}, 1)}> ↑ upVote </button>
+                        <button className="Button" aria-label='Down vote review.' onClick={() => Vote({review_id}, -1)}> ↓ downVote </button>
             </section>
 
             <section className='Comments__Body'>
                 <h3> Comments Section </h3>
                 <Comments review_id={review_id} />
-                
             </section>
+            
         </section>
         
     )

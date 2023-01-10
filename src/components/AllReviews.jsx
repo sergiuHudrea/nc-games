@@ -13,7 +13,7 @@ export const AllReviews = () => {
 
 
     return <section className="Reviews__Body">
-        {reviews.map((review) => <section className="Reviews"> <Link to={`/reviews/${review.review_id}`} key={review.review_id} >
+        {reviews.map((review) => <section className="Reviews" key={review.review_id}> <Link to={`/reviews/${review.review_id}`}  >
             <strong>{review.title}</strong> <br/>
             Votes: {review.votes} <br/>
             <img className="imgReviews" src={review.review_img_url} alt="Board Game" />
