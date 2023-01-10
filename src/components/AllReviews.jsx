@@ -12,11 +12,11 @@ export const AllReviews = () => {
     }, [])
 
 
-    return <div className="Reviews__Body">
-        {reviews.map((review) => <Link to={`/reviews/${review.review_id}`} key={review.review_id} className="Reviews">
+    return <section className="Reviews__Body">
+        {reviews.map((review) => <section className="Reviews"> <Link to={`/reviews/${review.review_id}`} key={review.review_id} >
             <strong>{review.title}</strong> <br/>
             Votes: {review.votes} <br/>
-            <img src={review.review_img_url} alt="Board Game" height="300px" width="300px"/>
-        </Link>)}
-    </div>
+            <img className="imgReviews" src={review.review_img_url} alt="Board Game" />
+        </Link> </section>)}
+    </section>
 }

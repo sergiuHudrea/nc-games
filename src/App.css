@@ -4,9 +4,14 @@
 
 
 .Header {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-evenly;
+  flex-grow: 1;
   color: red;
   border: 3px solid black ;
-  padding: 5px;
+  padding: 20px;
+  margin: 20px;
 }
 
 .Reviews__Body{
@@ -19,17 +24,44 @@
 
 .Reviews {
     border: 2px solid red;
-    padding: 1rem;
+    padding: 10px;
     border-radius: 10%;
     margin:15px;
 
   }
+  
 
 .Review {
   border: 3px dotted red;
   padding: 20px;
   margin: 20px;
+  display: block;
 }
 
 
+.Comments {
+  border: 1px solid black;
+  margin: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.Comments__Body {
+  border: 3px dotted black;
+  padding: 20px;
+  margin: 20px;
+}
+
+@media only screen and (min-width:700px) {
+  .imgReview {
+    width: 600px;
+    height: 400px;
+  }
+}
+
+.imgReviews {
+  height: 300px ;
+  width: 400px;
+  padding: 10px
+}
 
