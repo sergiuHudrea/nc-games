@@ -21,3 +21,11 @@ export const getComments = (review_id) => {
         return res.data.comments
     })
 }
+
+export const patchVotesReview = (review_id, vote) => {
+    const patchBody = { inc_votes: vote }
+
+    return houseOfGamesApi.patch(`/reviews/${review_id}`, patchBody).then((res) => {
+        return res.request.status;
+    })
+}

@@ -2,7 +2,11 @@ import  { useEffect, useState } from 'react';
 import { getReview } from '../api'
 import { useParams } from 'react-router-dom';
 
-import { Comments } from './Comments'
+import { Comments } from './Comments';
+import { patchVotesReview } from '../api';
+
+
+
 
 
 export const SingleReview = () => {
@@ -14,6 +18,16 @@ export const SingleReview = () => {
             setReview(review);
         })
     }, [review_id])
+
+    const Vote = ({review_id},  vote) => {
+            patchVotesReview(review_id, vote).then((res) => 
+                res === 200 ? setReview((currReview)=> {
+                    const updatedReview = {...currReview}
+                    updatedReview.votes += vote;
+                    return  updatedReview;
+        }) : alert(`Your vote has not gone through, please try again.`))
+    
+    }
     
     return (
         <section>
@@ -35,6 +49,10 @@ export const SingleReview = () => {
                 </p>
 
             </section>
+            <section>
+                        <button aria-label='Up vote review.' onClick={() => Vote({review_id}, 1)}> upVote </button>
+                        <button aria-label='Down vote review.' onClick={() => Vote({review_id}, -1)}> downVote </button>
+            </section>
 
             <section className='Comments__Body'>
                 <h3> Comments Section </h3>
@@ -45,3 +63,6 @@ export const SingleReview = () => {
         
     )
 }
+
+
+
