@@ -23,7 +23,6 @@
 }
 
 .Reviews {
-  
     border: 2px solid red;
     padding: 10px;
     border-radius: 10%;
@@ -36,6 +35,7 @@
   border: 3px dotted red;
   padding: 20px;
   margin: 20px;
+  display: block;
 }
 
 
@@ -59,23 +59,9 @@
   }
 }
 
-
 .imgReviews {
   height: 300px ;
   width: 400px;
   padding: 10px
 }
 
-
-@media only screen and (max-width:440px) {
-  .imgReviews {
-    width: 80%;
-    height: 60%;
-  }
-}
-@media only screen and (max-width:340px) {
-  .imgReviews { 
-    width: 40%;
-    height: 20%;}
- 
-}
