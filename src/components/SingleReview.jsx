@@ -7,11 +7,10 @@ import { patchVotesReview } from '../api';
 
 
 
-
-
 export const SingleReview = () => {
     const [review, setReview] = useState({});
     const {review_id} = useParams()
+    const [IVoted, setIVoted] = useState(false);
 
     useEffect(() => {
         getReview(review_id).then((review) => {
@@ -20,17 +19,20 @@ export const SingleReview = () => {
     }, [review_id])
 
     const Vote = ({review_id},  vote) => {
-        setReview((currReview)=> {
-            const updatedReview = {...currReview}
-            updatedReview.votes += vote;
-            return  updatedReview; }) 
-
-            patchVotesReview(review_id, vote).catch((err) => 
+            if (!IVoted) {
                 setReview((currReview)=> {
-                    const updatedReview = {...currReview}
-                    updatedReview.votes -= vote;
-                    return  updatedReview; })
-            )
+                const updatedReview = {...currReview}
+                updatedReview.votes += vote;
+                return  updatedReview; }) 
+                setIVoted(true)
+                
+                patchVotesReview(review_id, vote).catch((err) => 
+                    setReview((currReview)=> {
+                        setIVoted(false)
+                        const updatedReview = {...currReview}
+                        updatedReview.votes -= vote;
+                        return  updatedReview; })
+                )} 
     }
     
     return (
@@ -54,8 +56,8 @@ export const SingleReview = () => {
 
             </section>
             <section>
-                        <button aria-label='Up vote review.' onClick={() => Vote({review_id}, 1)}> upVote </button>
-                        <button aria-label='Down vote review.' onClick={() => Vote({review_id}, -1)}> downVote </button>
+                        <button className="Button" aria-label='Up vote review.' onClick={() => Vote({review_id}, 1)}> upVote </button>
+                        <button className="Button" aria-label='Down vote review.' onClick={() => Vote({review_id}, -1)}> downVote </button>
             </section>
 
             <section className='Comments__Body'>
