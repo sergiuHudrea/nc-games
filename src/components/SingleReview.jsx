@@ -16,13 +16,13 @@ export const SingleReview = () => {
     }, [review_id])
     
     return (
-        <div>
+        <section>
             <section className='Review'> <br/>
 
-                <h3>{review.title} </h3>  
+                <h3>{review.title} </h3>   <br/>
                 <p> <strong> Designer: </strong> {review.designer} <br/> </p>
 
-                <img src={review.review_img_url} alt="Board Game Review." height="300px" width="300px"/> <br />
+                <img className="imgReview" src={review.review_img_url} alt="Board Game Review." height="100%" width="100%"/> <br />
 
                 <p> <strong>Review:</strong> {review.review_body} <br/> </p>
                 <p> <strong> Owner: </strong> {review.owner} <br/></p>
@@ -41,7 +41,7 @@ export const SingleReview = () => {
                 <Comments review_id={review_id} />
                 
             </section>
-        </div>
+        </section>
         
     )
 }
