@@ -2,18 +2,38 @@ import  { useEffect, useState } from 'react';
 import { getReview } from '../api'
 import { useParams } from 'react-router-dom';
 
-import { Comments } from './Comments'
+import { Comments } from './Comments';
+import { patchVotesReview } from '../api';
+
 
 
 export const SingleReview = () => {
     const [review, setReview] = useState({});
     const {review_id} = useParams()
+    const [IVoted, setIVoted] = useState(false);
 
     useEffect(() => {
         getReview(review_id).then((review) => {
             setReview(review);
         })
     }, [review_id])
+
+    const Vote = ({review_id},  vote) => {
+            if (!IVoted) {
+                setReview((currReview)=> {
+                const updatedReview = {...currReview}
+                updatedReview.votes += vote;
+                return  updatedReview; }) 
+                setIVoted(true)
+                
+                patchVotesReview(review_id, vote).catch((err) => 
+                    setReview((currReview)=> {
+                        setIVoted(false)
+                        const updatedReview = {...currReview}
+                        updatedReview.votes -= vote;
+                        return  updatedReview; })
+                )} 
+    }
     
     return (
         <section>
@@ -35,6 +55,10 @@ export const SingleReview = () => {
                 </p>
 
             </section>
+            <section>
+                        <button className="Button" aria-label='Up vote review.' onClick={() => Vote({review_id}, 1)}> upVote </button>
+                        <button className="Button" aria-label='Down vote review.' onClick={() => Vote({review_id}, -1)}> downVote </button>
+            </section>
 
             <section className='Comments__Body'>
                 <h3> Comments Section </h3>
@@ -45,3 +69,6 @@ export const SingleReview = () => {
         
     )
 }
+
+
+
