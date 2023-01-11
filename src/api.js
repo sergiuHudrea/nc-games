@@ -26,6 +26,23 @@ export const patchVotesReview = (review_id, vote) => {
     const patchBody = { inc_votes: vote }
 
     return houseOfGamesApi.patch(`/reviews/${review_id}`, patchBody).then((res) => {
-        return res.request.status;
+        return res.data;
+    })
+}
+
+export const postComment = (review_id, newComment) => {
+    const postBody = {
+        username: "happyamy2016",
+        body: newComment
+    }
+
+    return houseOfGamesApi.post(`/reviews/${review_id}/comments`, postBody).then((res) => {
+        return res.data;
+    })
+}
+
+export const getCategories = () => {
+    return houseOfGamesApi.get('/categories').then(({ data }) => {
+        return data.categories;
     })
 }

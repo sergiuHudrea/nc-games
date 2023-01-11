@@ -44,6 +44,7 @@
   margin: 5px;
   margin-bottom: 10px;
   padding: 5px;
+  display:block;
 }
 
 .Comments__Body {
@@ -65,11 +66,21 @@
   padding: 10px
 }
 
-.Button {
+button {
   padding: 10px;
   margin: 10px;
   
 }
-.Button:hover {
+button:hover {
   color: purple;
+}
+
+.Form{
+  padding: 20px;
+  margin: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
 }
