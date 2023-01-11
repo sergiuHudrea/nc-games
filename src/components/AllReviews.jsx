@@ -1,31 +1,58 @@
 import { useState, useEffect } from "react";
 import { getReviews } from "../api";
-import { Link,useSearchParams } from 'react-router-dom'
+import { Link,useSearchParams} from 'react-router-dom'
 
 export const AllReviews = () => {
     const [reviews, setReviews] = useState([]);
-    const [searchParams, setSearchParams] = useSearchParams();
+    
     const [error, setError] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+    
+    const [searchParams, setSearchParams] = useSearchParams();
+    const category = searchParams.get('category');
 
-    const sortByCategory = searchParams.get('category');
+    const [sort_by, setSort_by] = useState(null);
+    const [order, setOrder] = useState(null);
+    
+    
     useEffect(() => {
+        setIsLoading(true)
         setError(false)
-        getReviews(sortByCategory).then((review) => {
+
+        getReviews(sort_by, order, category).then((review) => {
             setReviews(review);
+            setIsLoading(false)
         }).catch(() => {
             setError(true)
         })
-    }, [sortByCategory])
+    }, [sort_by, order, category])
 
     if (error) { 
-        return <p><br/><strong> There are no reviews for this category </strong></p>
+        return <p><br/><strong> Something went wrong... </strong></p>
     }
 
-    return <section className="Reviews__Body">
+    if (isLoading) {
+        return <p> Loading... </p>
+    }
+
+    return <section> <br/>
+        <label>Sort by: </label>
+        <select value={sort_by} onChange={(e) => setSort_by(e.target.value)}>
+            <option value="created_at">  Date </option>
+            <option value="votes"> Votes </option>
+            <option value="comment_count"> Comment count </option>
+        </select>
+        <select value={order} onChange={(e) => setOrder(e.target.value)}>
+            <option value="asc"> A-Z </option>
+            <option value="desc"> Z-A </option>
+        </select>
+
+        <section className="Reviews__Body">
         {reviews.map((review) => <section className="Reviews" key={review.review_id}> <Link to={`/reviews/${review.review_id}`}  >
             <strong>{review.title}</strong> <br/>
             Votes: {review.votes} <br/>
             <img className="imgReviews" src={review.review_img_url} alt="Board Game" />
         </Link> </section>)}
-    </section>
+    </section></section>
 }
+
