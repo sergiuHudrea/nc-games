@@ -11,10 +11,10 @@ export const AllReviews = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const category = searchParams.get('category');
 
-    const [sort_by, setSort_by] = useState(null);
-    const [order, setOrder] = useState(null);
+    const [sort_by, setSort_by] = useState(undefined);
+    const [order, setOrder] = useState(undefined);
     
-    
+
     useEffect(() => {
         setIsLoading(true)
         setError(false)
@@ -43,8 +43,8 @@ export const AllReviews = () => {
             <option value="comment_count"> Comment count </option>
         </select>
         <select value={order} onChange={(e) => setOrder(e.target.value)}>
-            <option value="asc"> A-Z </option>
-            <option value="desc"> Z-A </option>
+            <option value="desc"> Descending </option>
+            <option value="asc"> Ascending </option>       
         </select>
 
         <section className="Reviews__Body">
