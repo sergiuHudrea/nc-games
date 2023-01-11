@@ -40,3 +40,9 @@ export const postComment = (review_id, newComment) => {
         return res.data;
     })
 }
+
+export const getCategories = () => {
+    return houseOfGamesApi.get('/categories').then(({ data }) => {
+        return data.categories;
+    })
+}
