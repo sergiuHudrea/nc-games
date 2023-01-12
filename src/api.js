@@ -4,16 +4,11 @@ const houseOfGamesApi = axios.create({
     baseURL: 'https://house-of-games.onrender.com/api'
 })
 
-export const getReviews = (category) => {
-    if (category) {
-        return houseOfGamesApi.get(`/reviews?category=${category}`).then((res) => {
-            return res.data.reviews
-            
-        })
-    } else {
-        return houseOfGamesApi.get('/reviews').then((res) => {
+export const getReviews = (sort_by, order, category) => {
+        return houseOfGamesApi.get('/reviews', { 
+            params: { sort_by, order, category }}).then((res) => {
         return res.data.reviews
-    })}
+    })
     
 }
 
