@@ -12,7 +12,7 @@ export const Categories = () => {
     }, [])
 
     return <section className="Categories"> <br/>
-        {categories.map((category) => <section className="Category" key={category.category_id}>
+        {categories.map((category) => <section className="Category" key={category.slug}>
             <Link to={`/?category=${category.slug}`} >
             <strong>{category.slug}</strong> <br/>
             {category.description}<br/><br/>

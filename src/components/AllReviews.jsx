@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getReviews } from "../api";
-import { Link,useSearchParams} from 'react-router-dom'
+import { Link,useNavigate,useSearchParams} from 'react-router-dom'
 
 export const AllReviews = () => {
     const [reviews, setReviews] = useState([]);
@@ -13,7 +13,8 @@ export const AllReviews = () => {
 
     const [sort_by, setSort_by] = useState(undefined);
     const [order, setOrder] = useState(undefined);
-    
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         setIsLoading(true)
@@ -27,6 +28,16 @@ export const AllReviews = () => {
         })
     }, [sort_by, order, category])
 
+    const handleSortChange = (e) => {
+        setSort_by(e.target.value)
+        navigate(`?sort_by=${e?.target.value || "created_at"}&&order=${order || "desc"}`)
+    }
+
+    const handleOrderChange = (e) => {
+        setOrder(e.target.value)
+        navigate(`?sort_by=${sort_by || "created_at"}&&order=${e.target.value}`)
+    }
+
     if (error) { 
         return <p><br/><strong> Something went wrong... </strong></p>
     }
@@ -37,12 +48,14 @@ export const AllReviews = () => {
 
     return <section> <br/>
         <label>Sort by: </label>
-        <select value={sort_by} onChange={(e) => setSort_by(e.target.value)}>
+        <select value={sort_by} onChange={(e) => handleSortChange(e)}>
+            
             <option value="created_at">  Date </option>
             <option value="votes"> Votes </option>
             <option value="comment_count"> Comment count </option>
+            
         </select>
-        <select value={order} onChange={(e) => setOrder(e.target.value)}>
+        <select value={order} onChange={(e) => handleOrderChange(e)}>
             <option value="desc"> Descending </option>
             <option value="asc"> Ascending </option>       
         </select>
