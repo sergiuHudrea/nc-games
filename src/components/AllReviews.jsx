@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { getReviews } from "../api";
 import { Link,useNavigate,useSearchParams} from 'react-router-dom'
+import { Error } from "./Error";
+import { Loading } from './Loading'
 
 export const AllReviews = () => {
     const [reviews, setReviews] = useState([]);
@@ -48,13 +50,10 @@ export const AllReviews = () => {
         
     }
 
-    if (error) { 
-        return <p><br/><strong> Something went wrong... </strong></p>
-    }
+    if (error) return Error();
 
-    if (isLoading) {
-        return <p> Loading... </p>
-    }
+    if (isLoading) return Loading();
+   
 
     return <section> <br/>
         <label>Sort by: </label>

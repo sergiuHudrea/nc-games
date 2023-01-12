@@ -5,6 +5,7 @@ export const RemoveComment = ({ comment_id, setComments }) => {
     const [error, setError] = useState(false)
     const deletedComments = [];
 
+
     const handleClick = (e) => {
         e.preventDefault();
         setError(false);
