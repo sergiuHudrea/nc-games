@@ -30,12 +30,22 @@ export const AllReviews = () => {
 
     const handleSortChange = (e) => {
         setSort_by(e.target.value)
-        navigate(`?sort_by=${e?.target.value || "created_at"}&&order=${order || "desc"}`)
+        if (category) {
+            navigate(`?category=${category}&&sort_by=${e?.target.value || "created_at"}&&order=${order || "desc"}`)
+        } else {
+            navigate(`?sort_by=${e?.target.value || "created_at"}&&order=${order || "desc"}`)
+        }
+        
     }
 
     const handleOrderChange = (e) => {
         setOrder(e.target.value)
-        navigate(`?sort_by=${sort_by || "created_at"}&&order=${e.target.value}`)
+        if (category) {
+            navigate(`?category=${category}&&sort_by=${sort_by || "created_at"}&&order=${e.target.value}`)
+        } else {
+            navigate(`?sort_by=${sort_by || "created_at"}&&order=${e.target.value}`)
+        }
+        
     }
 
     if (error) { 
