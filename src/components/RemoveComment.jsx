@@ -3,8 +3,8 @@ import { deleteComment } from "../api"
 
 export const RemoveComment = ({ comment_id, setComments }) => {
     const [error, setError] = useState(false)
-    const deletedComments = []
-    const [isLoading, setIsLoading] = useState(false);
+    const deletedComments = [];
+
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -18,7 +18,9 @@ export const RemoveComment = ({ comment_id, setComments }) => {
             
         })
 
-        deleteComment(comment_id).catch(() => {
+        deleteComment(comment_id).then(() => {
+            alert('Comment deleted succesfully.')
+        }).catch(() => {
             setError(true)
             setComments((currComments) => {
                 const updatedComments = [...currComments]
@@ -29,6 +31,9 @@ export const RemoveComment = ({ comment_id, setComments }) => {
     }
        
     if (error) {return <p> Error, the deletion was not successful </p>}
+
     
+
     return <button onClick={handleClick}> Delete </button>
+       
 }
