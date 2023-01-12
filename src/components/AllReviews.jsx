@@ -50,11 +50,11 @@ export const AllReviews = () => {
         
     }
 
-    if (error) return Error();
+    if (error) return <Error />
 
-    if (isLoading) return Loading();
+    if (isLoading) return <Loading />
    
-
+    
     return <section> <br/>
         <label>Sort by: </label>
         <select value={sort_by} onChange={(e) => handleSortChange(e)}>
