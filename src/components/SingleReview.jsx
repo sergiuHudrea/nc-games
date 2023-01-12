@@ -43,9 +43,7 @@ export const SingleReview = () => {
                 )} 
     }
     
-    if (error) {return Error()}
-
-    return (
+     error ? Error() : (
         <section>
             <section className='Review'> <br/>
 

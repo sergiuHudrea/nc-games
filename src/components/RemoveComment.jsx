@@ -4,6 +4,7 @@ import { deleteComment } from "../api"
 export const RemoveComment = ({ comment_id, setComments }) => {
     const [error, setError] = useState(false)
     const deletedComments = []
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleClick = (e) => {
         e.preventDefault();
