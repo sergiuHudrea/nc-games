@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { getComments } from '../api';
 import { InsertComment } from "./InsertComment";
+import {RemoveComment} from './RemoveComment'
 
 export const Comments = ({ review_id }) => {
     const [comments, setComments] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false)
+
+    const author = "happyamy2016";
 
     useEffect(() => {
         setIsLoading(true);
@@ -12,7 +15,8 @@ export const Comments = ({ review_id }) => {
             setComments(comments);
             setIsLoading(false)
         })
-    }, [])
+    }, [])    
+    
 
     return isLoading ? <p> Loading... </p> :
         comments.length !== 0 ? <section>
@@ -24,10 +28,12 @@ export const Comments = ({ review_id }) => {
                 <p> <strong>{comment.author} : </strong> {comment.body}</p> 
                 <p> <strong>Created at: </strong> {new Date(comment.created_at).toString().slice(0,-30)}</p>
                 <p> <strong>Votes: </strong> {comment.votes}</p>
+                { comment.author === author ? <RemoveComment comment_id={comment.comment_id} setComments={setComments}/>: null }
             </section>) )}
             
                                 </section>
                 : <section key="noComments" className="Comments"> There are no comments at the moment </section>
     
 }
+
 
