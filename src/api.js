@@ -5,17 +5,8 @@ const houseOfGamesApi = axios.create({
 })
 
 export const getReviews = (sort_by, order, category) => {
-    let link = '/reviews?';
-    if (sort_by) {
-        link += `sort_by=${sort_by}`;
-        } 
-    if (order) {
-        link += `&&order=${order}`;
-    }
-    if (category) {
-        link += `&&category=${category}`;
-    }
-        return houseOfGamesApi.get(link).then((res) => {
+        return houseOfGamesApi.get('/reviews', { 
+            params: { sort_by, order, category }}).then((res) => {
         return res.data.reviews
     })
     
