@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getReviews } from "../api";
 import { Link,useNavigate,useSearchParams} from 'react-router-dom'
+import { Error } from "./Error";
 
 export const AllReviews = () => {
     const [reviews, setReviews] = useState([]);
@@ -49,7 +50,7 @@ export const AllReviews = () => {
     }
 
     if (error) { 
-        return <p><br/><strong> Something went wrong... </strong></p>
+        return Error();
     }
 
     if (isLoading) {

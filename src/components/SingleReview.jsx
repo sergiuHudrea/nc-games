@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { Comments } from './Comments';
 import { patchVotesReview } from '../api';
+import { Error } from './Error';
 
 
 
@@ -11,11 +12,17 @@ export const SingleReview = () => {
     const [review, setReview] = useState({});
     const {review_id} = useParams()
     const [IVoted, setIVoted] = useState(false);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
-        getReview(review_id).then((review) => {
+        setError(false);
+        getReview(review_id)
+            .then((review) => {
             setReview(review);
-        })
+        })  
+            .catch(() => {
+                setError(true)
+            })
     }, [review_id])
 
     const Vote = ({review_id},  vote) => {
@@ -36,6 +43,8 @@ export const SingleReview = () => {
                 )} 
     }
     
+    if (error) {return Error()}
+
     return (
         <section>
             <section className='Review'> <br/>
