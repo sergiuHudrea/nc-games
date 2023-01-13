@@ -52,3 +52,9 @@ export const getCategories = () => {
 export const deleteComment = (comment_id) => {
     return houseOfGamesApi.delete(`/comments/${comment_id}`)
 }
+
+export const getUsers = () => {
+    return houseOfGamesApi.get('/users').then((res) => {
+        return res.data.users;
+    });
+};

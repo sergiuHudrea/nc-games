@@ -69,8 +69,8 @@ export const AllReviews = () => {
             <option value="asc"> Ascending </option>       
         </select>
 
-        <section className="Reviews__Body">
-        {reviews.map((review) => <section className="Reviews" key={review.review_id}> <Link to={`/reviews/${review.review_id}`}  >
+        <section className="Reviews">
+        {reviews.map((review) => <section className="Review" key={review.review_id}> <Link to={`/reviews/${review.review_id}`}  >
             <strong>{review.title}</strong> <br/>
             Votes: {review.votes} <br/>
             <img className="imgReviews" src={review.review_img_url} alt="Board Game" />

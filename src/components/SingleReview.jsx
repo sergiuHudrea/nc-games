@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { Comments } from './Comments';
 import { patchVotesReview } from '../api';
 import { Error } from './Error';
+import { Loading } from './Loading';
 
 
 
@@ -13,12 +14,15 @@ export const SingleReview = () => {
     const {review_id} = useParams()
     const [IVoted, setIVoted] = useState(false);
     const [error, setError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true)
         setError(false);
         getReview(review_id)
             .then((review) => {
-            setReview(review);
+                setIsLoading(false)
+                setReview(review);
         })  
             .catch(() => {
                 setError(true)
@@ -45,9 +49,11 @@ export const SingleReview = () => {
     
      if (error) return <Error />
 
+     if (isLoading) return <Loading />
+
      return (
         <section>
-            <section className='Review'> <br/>
+            <section className='ReviewCard'> <br/>
 
                 <h3>{review.title} </h3>   <br/>
                 <p> <strong> Designer: </strong> {review.designer} <br/> </p>

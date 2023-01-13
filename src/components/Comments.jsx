@@ -35,7 +35,13 @@ export const Comments = ({ review_id }) => {
         
                 </section>
                         } else { 
-                                return <section key="noComments" className="Comments"> There are no comments at the moment </section>
+                                return (<section>
+                                            <section > 
+                                                <InsertComment review_id={review_id} setComments={setComments} />
+                                            </section>
+                                            <section key="noComments" className="Comments"> There are no comments at the moment </section>
+                                        </section>
+                                )
                         } 
     
 }

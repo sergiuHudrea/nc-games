@@ -14,7 +14,25 @@
   margin: 20px;
 }
 
-.Reviews__Body{
+
+/* Users------------------------------- */
+.Users{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-evenly;
+  flex-grow:1;
+  margin: 40px;
+
+}
+.User{
+    border: 2px solid red;
+    padding: 10px;
+    border-radius: 10%;
+    margin:10px;
+}
+
+/* Reviews ------------------------------ */
+.Reviews{
   display:flex;
   flex-wrap:wrap;
   justify-content: space-evenly;
@@ -22,22 +40,27 @@
   margin: 40px;
 }
 
-.Reviews {
+.Review {
     border: 2px solid red;
     padding: 10px;
     border-radius: 10%;
     margin:15px;
 
   }
-  
 
-.Review {
+.imgReviews {
+    height: 300px ;
+    width: 400px;
+    padding: 10px
+  }
+  
+/* Single Review Page------------------------------ */
+.ReviewCard {
   border: 3px dotted red;
   padding: 20px;
   margin: 20px;
   display: block;
 }
-
 
 .Comments {
   border: 1px solid black;
@@ -60,12 +83,6 @@
   }
 }
 
-.imgReviews {
-  height: 300px ;
-  width: 400px;
-  padding: 10px
-}
-
 
 
 /* Buttons ----------- */
@@ -80,7 +97,7 @@ button:hover {
 
 
 
-/* Form --------- */
+/* Insert Comment (form)--------- */
 .Form{
   padding: 20px;
   margin: 20px;
@@ -91,12 +108,16 @@ textarea {
   height: 100px;
 }
 
+/* Categories ----------------------- */
+
 
 .Category {
   border: 3px dotted red;
   padding: 20px;
   margin: 20px;
-  display: block;
+  background-color: rgb(239, 147, 147);
   border-radius: 5%;
 
 }
+
+

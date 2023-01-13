@@ -7,7 +7,7 @@ export const Nav = () => {
             <span> | </span> 
             <Link to='/categories'> Categories </Link> 
             <span> | </span>
-            Users
+            <Link to='/users'> Users </Link>
         </nav>
     )
 }
