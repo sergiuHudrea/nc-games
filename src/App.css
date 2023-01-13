@@ -37,20 +37,21 @@
   flex-wrap:wrap;
   justify-content: space-evenly;
   flex-grow:1;
-  /* margin: 10px; */
+  /* margin-left: 20px;
+  margin-right: 20px; */
 }
 
 .Review {
     border: 2px solid red;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10%;
     margin:15px;
 
   }
 
 .imgReviews {
-    height: 250px ;
-    width: 300px;
+    height: 300px ;
+    width: 350px;
     padding: 10px
   }
   
