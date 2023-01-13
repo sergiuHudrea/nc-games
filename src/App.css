@@ -37,7 +37,7 @@
   flex-wrap:wrap;
   justify-content: space-evenly;
   flex-grow:1;
-  margin: 40px;
+  /* margin: 10px; */
 }
 
 .Review {
@@ -49,8 +49,8 @@
   }
 
 .imgReviews {
-    height: 300px ;
-    width: 400px;
+    height: 250px ;
+    width: 300px;
     padding: 10px
   }
   
