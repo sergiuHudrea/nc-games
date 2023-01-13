@@ -30,7 +30,7 @@ export const Comments = ({ review_id }) => {
                         <p> <strong>{comment.author} : </strong> {comment.body}</p> 
                         <p> <strong>Created at: </strong> {new Date(comment.created_at).toString().slice(0,-30)}</p>
                         <p> <strong>Votes: </strong> {comment.votes}</p>
-                        { comment.author === author ? <RemoveComment comment_id={comment.comment_id} setComments={setComments}/>: null }
+                        { comment.author === author ? <RemoveComment comment={comment} setComments={setComments} />: null }
                     </li>) )}
         
                 </section>

@@ -2,8 +2,6 @@ import { postComment } from "../api";
 import {  useState } from 'react';
 
 
-
-
 export const InsertComment = ({review_id, setComments}) => {
     const [newComment, setNewComment] = useState("");
     

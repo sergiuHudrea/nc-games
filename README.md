@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# House of Board Games
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Instructions to run the project locally
 
-## Available Scripts
+<br/>
 
-In the project directory, you can run:
+Clone the repository to your local machine with:
 
-### `npm start`
+    git clone https://github.com/sergiuHudrea/nc-games.git
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In order to install all dependencies needed, run:
 
-### `npm test`
+    npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+In order to run the app in development mode, run:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To build the app for production, run:
 
-### `npm run eject`
+    npm run build
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br/>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This app was created using [React](https://reactjs.org/), for more info on how to get started with the Create React App click [here](https://create-react-app.dev/docs/getting-started/).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Finally, for the project to run locally you will need the minimum versions of `Node.js` v19.0.0.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br/>
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Links 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Hosted
 
-### Code Splitting
+### [House of Board Games](https://house-of-board-games.netlify.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## API
 
-### Analyzing the Bundle Size
+### [House of Games Api](https://house-of-games.onrender.com/api)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## GitHub
+### [Backend](https://github.com/sergiuHudrea/house-of-games)
 
-### Making a Progressive Web App
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Summary
+This project represents the frontend development of my first Web Page. 
 
-### Deployment
+`House of Board Games` is a board games review Web Page. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The app enables the user to see reviews of board games and sort them depending on their number of votes, coment count, owner, designer, title, category, date, as well switching between ascending or descending order. 
 
-### `npm run build` fails to minify
+Moreover the user will be able to vote reviews, but also to post and delete comments.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
