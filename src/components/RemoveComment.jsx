@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { deleteComment } from "../api";
 
+
+
 export const RemoveComment = ({ comment, setComments }) => {
     const [error, setError] = useState(false);
     const deletedComments = [];
+
 
 
     const handleClick = (e) => {

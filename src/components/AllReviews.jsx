@@ -56,7 +56,7 @@ export const AllReviews = () => {
    
     
     return <section> <br/>
-        <label>Sort by: </label>
+        <label> <strong> Sort by: </strong> </label>
         <select value={sort_by} onChange={(e) => handleSortChange(e)}>
             <option value="created_at">  Date </option>
             <option value="votes"> Votes </option>
@@ -65,7 +65,7 @@ export const AllReviews = () => {
             <option value="owner"> Owner </option>
             <option value="designer"> Designer </option>
             
-        </select>
+        </select>  
         <select value={order} onChange={(e) => handleOrderChange(e)}>
             <option value="desc"> Descending </option>
             <option value="asc"> Ascending </option>       
