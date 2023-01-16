@@ -1,14 +1,18 @@
 import { Link } from 'react-router-dom';
 
 export const Nav = () => {
-    return (
-        <nav>
-            <Link to='/'> Reviews </Link>
-            <span> | </span> 
-            <Link to='/categories'> Categories </Link> 
-            <span> | </span>
-            <Link to='/users'> Users </Link>
+
+    return (<section>
+        <br/>
+        <nav><strong>
+            <Link to='/' className='Nav'> Reviews </Link>
+            <span>  |  </span> 
+            <Link to='/categories' className='Nav'> Categories </Link> 
+            <span>  |  </span>
+            <Link to='/users' className='Nav'> Users </Link>
+            </strong>
         </nav>
+        </section>
     )
 }
 

@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { getComments } from '../api';
 import { InsertComment } from "./InsertComment";
-import {RemoveComment} from './RemoveComment';
+import { RemoveComment } from './RemoveComment';
 import { Loading } from './Loading';
+
 
 export const Comments = ({ review_id }) => {
     const [comments, setComments] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
 
-    const author = "happyamy2016";
+    const loginUsername = window.localStorage.getItem("loginUsername")
+
 
     useEffect(() => {
         setIsLoading(true);
@@ -30,7 +32,7 @@ export const Comments = ({ review_id }) => {
                         <p> <strong>{comment.author} : </strong> {comment.body}</p> 
                         <p> <strong>Created at: </strong> {new Date(comment.created_at).toString().slice(0,-30)}</p>
                         <p> <strong>Votes: </strong> {comment.votes}</p>
-                        { comment.author === author ? <RemoveComment comment={comment} setComments={setComments} />: null }
+                        { comment.author === loginUsername ? <RemoveComment comment={comment} setComments={setComments} />: null }
                     </li>) )}
         
                 </section>

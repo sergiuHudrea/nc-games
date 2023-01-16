@@ -32,9 +32,9 @@ export const patchVotesReview = (review_id, vote) => {
     })
 }
 
-export const postComment = (review_id, newComment) => {
+export const postComment = (review_id, newComment, username) => {
     const postBody = {
-        username: "happyamy2016",
+        username: username,
         body: newComment
     }
 

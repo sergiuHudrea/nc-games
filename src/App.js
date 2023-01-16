@@ -8,22 +8,30 @@ import { SingleReview } from './components/SingleReview';
 import { Categories } from './components/Categories';
 import { Error } from './components/Error';
 import { Users } from './components/Users';
+import { UserContext } from './components/UserContext';
+
+import { useState } from 'react';
+
 
 function App() {
+  const [value, setValue] = useState("")
+  
   return (
     <BrowserRouter >
-    <div className="App" >
-     <Header />
-     <Nav />
+    <UserContext.Provider value={{ value, setValue }} >
+      <div className="App" >
+      <Header />
+      <Nav />
 
-     <Routes>
-        <Route path='/' element={<AllReviews />} />
-        <Route path='/reviews/:review_id' element={<SingleReview />} />
-        <Route path='/categories' element={<Categories />} />
-        <Route path='/users' element={<Users />} />
-        <Route path='/*' element={<Error />} />
-     </Routes>
-    </div>
+      <Routes>
+          <Route path='/' element={<AllReviews />} />
+          <Route path='/reviews/:review_id' element={<SingleReview />} />
+          <Route path='/categories' element={<Categories />} />
+          <Route path='/users' element={<Users />} />
+          <Route path='/*' element={<Error />} />
+      </Routes>
+      </div>
+    </UserContext.Provider>
     </BrowserRouter>
     
   );
