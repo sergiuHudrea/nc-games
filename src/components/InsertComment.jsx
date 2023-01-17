@@ -10,10 +10,22 @@ export const InsertComment = ({review_id, setComments}) => {
     const handleSubmit = (e) => {
         e.preventDefault()
             if (loginUsername) {
-            postComment(review_id, newComment, loginUsername).then(({comment}) => {
             setComments((currComments) => {
-                return [comment, ...currComments]
-            }) })
+                const updatedComments = [{
+                    author: loginUsername,
+                    body: newComment,
+                    created_at: new Date(Date.now()).toString(),
+                    votes: 0,
+                    comment_id: Date.now()
+                }, ...currComments]
+                return updatedComments
+            })
+            postComment(review_id, newComment, loginUsername)
+                .then(({comment}) => {
+                    setComments((currComments) => {
+                        currComments.shift()
+                        return [comment, ...currComments]
+                    }) })
                 .catch(() => { setComments((currComments) => {
                     const updatedComments = [...currComments]
                     alert('Your comment did not go through, please try again.')

@@ -34,7 +34,8 @@ export const Comments = ({ review_id }) => {
                         <p> <strong>Votes: </strong> {comment.votes}</p>
                         { comment.author === loginUsername ? <RemoveComment comment={comment} setComments={setComments} />: null }
                     </li>) )}
-        
+                        <br/>
+                        <br/>
                 </section>
                         } else { 
                                 return (<section>

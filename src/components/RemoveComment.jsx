@@ -16,8 +16,6 @@ export const RemoveComment = ({ comment, setComments }) => {
         })
 
         deleteComment(comment.comment_id)
-            .then(() => {
-                alert('Comment deleted succesfully.')})
             .catch(() => {
                 setComments((currComments) => {
                     const updatedComments = [...currComments];
